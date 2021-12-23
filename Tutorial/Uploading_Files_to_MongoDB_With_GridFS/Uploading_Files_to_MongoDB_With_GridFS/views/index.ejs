@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <title>Mongo File Upload</title>
+    <style>
+      img {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 m-auto">
+          <h1 class="text-center display-4 my-4">Mongo File Uploads</h1>
+          <form action="/upload" method="POST" enctype="multipart/form-data">
+            <!-- if you will going to use file field then we need to do 'enctype="multipart/form-data"' -->
+            <div class="custom-file mb-3">
+              <input
+                type="file"
+                name="file"
+                id="file"
+                class="custom-file-input"
+              />
+              <label for="file" class="custom-file-label">Choose File</label>
+            </div>
+            <input
+              type="submit"
+              value="Submit"
+              class="btn btn-primary btn-block"
+            />
+          </form>
+          <hr />
+          <!-- here we are using ejs feature to use javascript in html -->
+          <% if(files){ %> <% files.forEach(function(file) { %>
+          <div class="card card-body mb-3">
+            <% if(file.isImage) { %>
+            <img src="image/<%= file.filename %>" alt="" />
+            <% } else { %> <%= file.filename %> <% } %>
+            <form method="POST" action="/files/<%= file._id %>?_method=DELETE">
+              <button class="btn btn-danger btn-block mt-4">Delete</button>
+            </form>
+          </div>
+          <% }) %> <% } else { %>
+          <p>No files to show</p>
+          <% } %>
+          <!-- in form inside we are using ?_method=DELETE whicl will call the delete methd or make a delete request and we are able to use this using 'method-override' package -->
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

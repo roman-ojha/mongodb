@@ -1,0 +1,2 @@
+These both method are slightly different but of same way but while implementing it you have to see both of the method and implementing one by one
+-> database connection by Uploading_Image one is i thing better and newer

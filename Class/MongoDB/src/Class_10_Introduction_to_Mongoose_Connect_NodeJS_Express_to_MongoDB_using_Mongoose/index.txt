@@ -1,0 +1,8 @@
+-> we can connect NodeJS,Express to MongoDB without Mongoose as well but to do that operation it will take a lot of time to write a code
+-> so, we will going to use mongoose to connect NodeJS, Express
+
+-> Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
+
+-> https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/
+
+-> MongooseJS provides an abstraction layer on top of MongoDB that elliminates the need to use named collections

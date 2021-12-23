@@ -1,0 +1,48 @@
+=> to use the database:
+    -> write:
+        -> mongo
+    -> use <database name>
+        -> so, if the name is not present the it will create the new one
+        -> and if the database of the same name is present then we can use it as active database
+            -> ex: use romanojha
+                -> output: switched to db romanojha 
+        -> but after that also if the database is new then it will not show the data.
+        -> because, there is a minimum requirement to show database
+        -> and that is there must be atleast one collection or record(document) inside the database only after that it will show 
+        -> to insert the document or the collection we have to do this:
+            -> db.romandata.insertOne({name:"ReactJS",type:"FrontEnd",videos:80,active:true})
+            -> {
+                    "acknowledged" : true,
+                    "insertedId" : ObjectId("60d42eea1db737c2658cd5ea")
+                }
+            -> here we can see that if we don't put id in the document then it will automatically put it 
+            -> which refer the document that we just put
+            -> insertedId is use as a primary key
+            -> now if we will write :
+                -> show dbs
+                    admin      0.000GB
+                    config     0.000GB
+                    local      0.000GB
+                    romanojha  0.000GB
+            -> if you want to see the active database the you have to wirte:
+                -> db
+                    romanojha
+            -> if you want to see collection in the database then you have to write:
+                -> show collections
+                    romandata
+            -> if you want to see document in the data then you have to write:
+                -> db.romandata.find()
+                -> { "_id" : ObjectId("60d42eea1db737c2658cd5ea"), "name" : "ReactJS", "type" : "FrontEnd", "videos" : 80, "active" : true }
+                ->  db.romandata.find().pretty() -> to make pretty
+                ->  {
+                            "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                            "name" : "ReactJS",
+                            "type" : "FrontEnd",
+                            "videos" : 80,
+                            "active" : true
+                    }
+            -> to clear screen:
+                -> cls
+            -> to exit:
+                -> ctrl + c
+                -> quit()

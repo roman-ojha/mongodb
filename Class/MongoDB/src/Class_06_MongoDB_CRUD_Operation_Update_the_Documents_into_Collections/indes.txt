@@ -1,0 +1,39 @@
+ # Update Operation
+    -> UpdateOne() 
+        => db.<collection_name>.updateOne(<filter>,<update>)
+        -> update one will update the first value that match the condition
+    
+    -> UpdateMany() 
+        => db.<collection_name>.updateMany(<filter>,<update>)
+        -> UpdateMany() will update many value that match the condition
+
+    -> replaceOne()
+
+        1) Update the JavaScript type value to "Full Stack"
+            => db.romandata.updateOne( {name:"Javascript"} , { $set:{type:"Full Stack"} } )
+                -> here $set is the setoperator
+                -> the $set operator replaces the value of a field with the specified value 
+                -> and here we are changing the value of (type:"Front end") to (type:"Full Stack")
+                    -> output:
+                        { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+                    -> document:
+                        {
+                            "_id" : ObjectId("60d437ca151deb0fc3129a86"),
+                            "name" : "Javascript",
+                            "type" : "Full Stack",
+                            "video" : 150,
+                            "active" : true
+                        }
+
+        2) Update all the fields with the type value equal to to "FrontEnd" and set the value of the status to False.
+            => db.romandata.updateMany({type:"FrontEnd"},{$set:{active:false}})
+                -> output: 
+                        { "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+                -> document:
+                        {
+                            "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                            "name" : "ReactJS",
+                            "type" : "FrontEnd",
+                            "videos" : 80,
+                            "active" : false
+                        }

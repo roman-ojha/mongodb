@@ -1,0 +1,54 @@
+# Create Operation
+
+=> MongoDB provides the following methods to insert documents into a collection:
+    a) db.collection.insertOne() 
+        -> to insert one document
+    b) db.collection.insertMany()
+        -> to insert many documents
+        -> here you are going to create array of multiple object
+        -> db.romandata.insertMany([ {} , {} , {} , {} , {} ])
+        -> db.romandata.insertMany([{name:"NodeJS",type:"Backend",videos:40,active:true},{name:"Javascript",type:"Front end",video:150,active:true}])
+            {
+                    "acknowledged" : true,
+                    "insertedIds" : [
+                            ObjectId("60d437ca151deb0fc3129a85"),
+                            ObjectId("60d437ca151deb0fc3129a86")
+                    ]
+            }
+    #CRUD:
+    C - Create
+    R - Read
+    U - Update
+    D - Delete 
+
+
+    -> after inserting lot of data in 'romandata' collection in 'romanojha' Database:
+    -> Create Operation
+    ->  {
+                "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                "name" : "ReactJS",
+                "type" : "FrontEnd",
+                "videos" : 80,
+                "active" : true
+        }
+        {
+                "_id" : ObjectId("60d43682151deb0fc3129a84"),
+                "name" : "MongoDB",
+                "type" : "Database",
+                "videos" : 5,
+                "active" : true
+        }
+        {
+                "_id" : ObjectId("60d437ca151deb0fc3129a85"),
+                "name" : "NodeJS",
+                "type" : "Backend",
+                "videos" : 40,
+                "active" : true
+        }
+        {
+                "_id" : ObjectId("60d437ca151deb0fc3129a86"),
+                "name" : "Javascript",
+                "type" : "Front end",
+                "video" : 150,
+                "active" : true
+        }

@@ -1,0 +1,1 @@
+-> you can download the mongodb compass from the official website https://www.mongodb.com/products/compass

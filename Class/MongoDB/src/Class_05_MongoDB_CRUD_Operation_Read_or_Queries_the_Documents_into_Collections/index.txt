@@ -1,0 +1,109 @@
+# Read Operation
+    -> db.<collection_name>.find(query,projection)
+    -> query: here what kind of query you want to perform
+    -> projection: projection means to show or not to show
+    -> db.<collection_name>.findOne(query,projection)
+        -> this will return only one data which match the condition
+
+    -> collection_name = romandata
+    1) Find all the result of the given collection.
+        => db.romandata.find()
+            -> output:
+                { "_id" : ObjectId("60d42eea1db737c2658cd5ea"), "name" : "ReactJS", "type" : "FrontEnd", "videos" : 80, "active" : true }
+                { "_id" : ObjectId("60d43682151deb0fc3129a84"), "name" : "MongoDB", "type" : "Database", "videos" : 5, "active" : true }
+                { "_id" : ObjectId("60d437ca151deb0fc3129a85"), "name" : "NodeJS", "type" : "Backend", "videos" : 40, "active" : true }
+                { "_id" : ObjectId("60d437ca151deb0fc3129a86"), "name" : "Javascript", "type" : "Front end", "video" : 150, "active" : true }
+
+    2) Show the result in pretty formate?
+        => db.romandata.find().pretty()
+            -> output:
+                {
+                    "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                    "name" : "ReactJS",
+                    "type" : "FrontEnd",
+                    "videos" : 80,
+                    "active" : true
+                }
+                {
+                    "_id" : ObjectId("60d43682151deb0fc3129a84"),
+                    "name" : "MongoDB",
+                    "type" : "Database",
+                    "videos" : 5,
+                    "active" : true
+                }
+                {
+                    "_id" : ObjectId("60d437ca151deb0fc3129a85"),
+                    "name" : "NodeJS",
+                    "type" : "Backend",
+                    "videos" : 40,
+                    "active" : true
+                }
+                {
+                    "_id" : ObjectId("60d437ca151deb0fc3129a86"),
+                    "name" : "Javascript",
+                    "type" : "Front end",
+                    "video" : 150,
+                    "active" : true
+                }
+
+    3) Get only MongoDB data as a output.
+        => db.romandata.find({name:"MongoDB"}).pretty()
+            -> output:
+                {
+                    "_id" : ObjectId("60d43682151deb0fc3129a84"),
+                    "name" : "MongoDB",
+                    "type" : "Database",
+                    "videos" : 5,
+                    "active" : true
+                }
+
+    4) Get only MongoDB data as output with only name field.
+        => db.romandata.find( {name:"MongoDB"} , {name:1} ).pretty()
+
+            -> 1 represent true it means present the data with the key 'name'
+            -> if we will use 0 then it will project all the data except 'name'
+                -> output:
+                    { "_id" : ObjectId("60d43682151deb0fc3129a84"), "name" : "MongoDB" }
+
+    5) Get the MongoDB data without _ID field in it.
+        => db.romandata.find( {name:"MongoDB"} , {_id:0,name:1} ).pretty()
+            
+            -> because we use 0 for '_id' that's why it didn't show
+            -> output:
+                    { "name" : "MongoDB" }
+
+    6) Set the filter to "active:true" and get only the first field with "active:true" value.
+        => db.romandata.find({active:true}).pretty().limit(1)
+            -> here limit(1) means we only want first one data which will match the condition 
+                -> output: 
+                    {
+                        "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                        "name" : "ReactJS",
+                        "type" : "FrontEnd",
+                        "videos" : 80,
+                        "active" : true
+                    }
+
+    7) Do the same as 6th question but with different method.
+        => db.romandata.findOne({active:true})
+            -> findOne() function will find the first data which will mathc the condition
+                -> output: 
+                    {
+                        "_id" : ObjectId("60d42eea1db737c2658cd5ea"),
+                        "name" : "ReactJS",
+                        "type" : "FrontEnd",
+                        "videos" : 80,
+                        "active" : true
+                    }
+
+    8) Do the same as 6th question but this time, get the 2nd field with "active:true" by skipping the 1st field 
+        => db.romandata.find({active:true}).pretty().limit(1).skip(1)
+            -> skip(1) will skip one data that will match the condition
+                -> output:
+                    {
+                        "_id" : ObjectId("60d43682151deb0fc3129a84"),
+                        "name" : "MongoDB",
+                        "type" : "Database",
+                        "videos" : 5,
+                        "active" : true
+                    }

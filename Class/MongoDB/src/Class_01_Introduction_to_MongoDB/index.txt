@@ -1,0 +1,52 @@
+-> mostly use database
+    1) SQL
+        a) MySQL
+            -> RDBMS is a realtional database managment system and works on relational database.
+            -> it stores data in form of entity as tables.
+            -> it uses SQL to query database
+                                                TABLE :                          Colume
+                                                                                    |
+            ->   ____________________________________________________________________________
+                |  id  |    name    |   gender  |   language    |   class   |   expirence   |
+                -----------------------------------------------------------------------------
+                |   1  |   roman    |   male    |   javascript  |      A    |   1 year      | ---> Row
+                |      |            |           |               |           |               |
+    2) NoSQL
+        a) MongoDB
+            -> in February 2009, 10gen released MongoDB as a open source project
+            -> It's a non-relational, document-oriented database managment system and works on document-based database
+            -> MongoDB stores data in form of documents
+            -> MongoDB uses BSON to query database
+            -> BSON Formate:
+                                    COLLECTION :
+                {                                                                   ----|
+                    "_id": 1,                                                           |
+   Fields --------> "name" : { "first" : "John", "last" : "Backus" },                   |
+                    "contribs" : [ "Fortran", "ALGOL", "Backus-Naur Form", "FP" ],      |
+                    "awards" : [                                                        |
+                        {                                                               |
+                        "award" : "W.W. McDowell Award",                                |
+                        "year" : 1967,                                                  |   -------> Document
+                        "by" : "IEEE Computer Society"                                  |
+                        }, {                                                            |
+                        "award" : "Draper Prize",                                       |
+                        "year" : 1993,                                                  |
+                        "by" : "National Academy of Engineering"                        |
+                        }                                                               |
+                    ]                                                                   |
+                }                                                                   ____|
+=> JSON and BSON (https://www.mongodb.com/json-and-bson) (https://www.educba.com/json-vs-bson/)
+        =>JSON 
+            a) JSON is a text-based format, and text parsing is very slow
+
+            b) JSON’s readable format is far from space-efficient, another database concern
+
+            c) JSON only supports a limited number of basic data types
+        => BSON
+            -> BSON was invented to bridge the gap: a binary representation to store data in JSON format, optimized for speed, space, and flexibility. It’s not dissimilar from other interchange formats like protocol buffers, or thrift, in terms of approach.
+            -> BSON simply stands for “Binary JSON,” and that’s exactly what it was invented to be. BSON’s binary structure encodes type and length information, which allows it to be parsed much more quickly.
+
+# Three A of MongoDB
+    -> A = Application
+    -> A = Analytics
+    -> A = Admin

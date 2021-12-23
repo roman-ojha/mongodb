@@ -1,0 +1,21 @@
+# Delete Operation
+    -> deleteMany()
+        => db.<collection_name>.deleteOne(<Deletion_Critteria>)
+        => db.<collection_name>.deleteMany(<Deletion_Critteria>)
+
+        -> We also have the remove() method to perform the delete operation but it's deprecated as per documents.
+        => db.<collection_name>.remove(<Deletion_Critteria>)
+
+        -> if you want to delete full document then
+
+
+        1) Delete the field with the type matchs "Full Stack"
+            => db.romandata.deleteMany({type:"Full Stack"})
+            -> output:
+                { "acknowledged" : true, "deletedCount" : 1 }
+
+            => db.romandata.remove({type:"Full Stack"})
+        2) Delete all field
+            => db.romandata.deleteMany({})
+            -> output: 
+                { "acknowledged" : true, "deletedCount" : 3 }
