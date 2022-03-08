@@ -1,0 +1,10 @@
+-> Starting with the 3.2 release of MongoDB, you can get N random docs from a collection using the $sample aggregation pipeline operator:
+    -> Get one random document from the mycoll collection.
+    -> db.mycoll.aggregate([{ $sample: { size: 1 } }])
+
+-> If you want to select the random document(s) from a filtered subset of the collection, prepend a $match stage to the pipeline:
+    -> Get one random document matching {a: 10} from the mycoll collection.
+    -> db.mycoll.aggregate([
+            { $match: { <filed>: <field_value> } },
+            { $sample: { size: 1 } }
+        ])

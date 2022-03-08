@@ -1,0 +1,23 @@
+https://stackoverflow.com/questions/15117030/how-to-filter-array-in-subdocument-with-mongodb
+
+->  const userSuggestion = await userDetail.aggregate([
+      //getting the document that is not rootUser & and the user which is not friend of rootUser
+      {
+        $match: {
+          $and: [
+            { "friends.userID": { $not: { $eq: req.rootUser.userID } } },
+            { userID: { $not: { $eq: req.rootUser.userID } } },
+          ],
+        },
+      },
+      {
+        // getting only required field
+        $project: {
+          picture: 1,
+          name: 1,
+          userID: 1,
+          _id: 0,
+        },
+      },
+      { $sample: { size: 5 } },
+    ]);
