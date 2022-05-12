@@ -1,0 +1,3 @@
+-> mongo (to connect to mongodb on localhost)
+
+*) Shell command:
