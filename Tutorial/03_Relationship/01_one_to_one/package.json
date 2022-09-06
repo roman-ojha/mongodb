@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "env-cmd ts-node index.ts",
+    "dev": "env-cmd nodemon index.ts"
   },
   "keywords": [],
   "author": "",
