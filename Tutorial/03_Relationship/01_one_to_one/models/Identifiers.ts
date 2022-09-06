@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { customerSchema } from "./Customers";
+import { customerSchema } from "./Customers.js";
 
 const identifierSchema = new mongoose.Schema({
   customerCode: String,
@@ -14,6 +14,8 @@ const identifierSchema = new mongoose.Schema({
   // another way using embedded schema
   // customer: customerSchema,
   // so here 'customer' store customer Schema which create the identifier it will now store the customer Object
+  // for this method we don't do 'populate'
+  // NOTE that now this 'customer' field will again store the same document that is create which customer is being create and store into 'Customer' collection, it will re store that whole data into new Identifier
 });
 
 const Identifier = mongoose.model("Identifier", identifierSchema);
