@@ -2,7 +2,7 @@
   "name": "01_one_to_one",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "type": "module",
   "scripts": {
     "start": "env-cmd ts-node index.ts",
