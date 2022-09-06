@@ -1,0 +1,30 @@
+*) Example:
+    *) One Way
+        => For One-to-One relationship
+        Customer:
+            _id : Objectid
+            email: String
+            address: String
+            phone: String
+        
+        Payment:
+            _id : Objectid
+            carCode: String 
+            Customer: Objectid
+
+        => Here in Payment Collection we have 'Customer' field which will store the 'Customer' Document '_id' which will work as a reference
+        => because in NoSQL there doesn't have primary key and foreign key concept so we have to work in this way by storing the id of the One Document with different collection into another Document with different collection
+    
+    *) Another Way:
+        -> because we know that one custom have one payment, and payment is own by customer then we can embed those two collection into one
+        -> Customer:{
+            _id : Objectid
+            email: String
+            address: String
+            phone: String
+            Payment:{
+                _id : Objectid
+                carCode: String 
+            }
+        }
+
