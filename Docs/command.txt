@@ -1,3 +1,5 @@
 -> mongo (to connect to mongodb on localhost)
+-> mongod --dbpath <path> (run mongo server providing specific path to store db data)
+-> mongod --port <port> (run on given port)
 
 *) Shell command:
