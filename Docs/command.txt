@@ -3,3 +3,7 @@
 -> mongod --port <port> (run on given port)
 
 *) Shell command:
+*) Add new user for mongoDB:
+    -> user admin;
+    -> db.createUser({user:'<username>',pwd:'<password>', roles:[{role:'readWrite', db:'<database_name>'}]});
+        -> you can give role to multiple database for the same user as well
